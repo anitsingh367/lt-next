@@ -71,11 +71,11 @@ function Header() {
         <Box
           sx={{
             width: "100%",
-            position: "relative",
-            height: 104,
+            display: "flex",
+            justifyContent: "center",
           }}
         >
-          <Image src={logo} alt="logo" objectFit="contain" fill></Image>
+          <Image src={logo} alt="logo" height={104}></Image>
         </Box>
       </Toolbar>
       <Divider></Divider>
@@ -151,11 +151,9 @@ function Header() {
             sx={{
               display: { lg: "flex", md: "none", sm: "none", xs: "none" },
               width: "50%",
-              position: "relative",
-              height: 64,
             }}
           >
-            <Image src={logo} alt="logo" objectFit="contain" fill></Image>
+            <Image src={logo} alt="logo" height={64}></Image>
           </Box>
           <Box
             sx={{
