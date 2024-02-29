@@ -37,7 +37,6 @@ const Footer: React.FC = () => {
     });
   }, []);
 
-  console.log("eventTitles", eventTitles);
   return (
     <>
       <Box
