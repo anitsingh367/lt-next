@@ -37,7 +37,6 @@ const Footer: React.FC = () => {
     });
   }, []);
 
-  console.log("eventTitles", eventTitles);
   return (
     <>
       <Box
@@ -85,7 +84,7 @@ const Footer: React.FC = () => {
                 color: "secondary.contrastText",
               }}
             >
-              Promoting the doctrine of `&quot;`The Universal Truth`&quot;`,
+              Promoting the doctrine of &quot;The Universal Truth&quot;,
               which stands for equal value to every human, irrespective of
               caste, creed, color or gender.
             </ListItemText>

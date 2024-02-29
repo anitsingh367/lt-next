@@ -1,36 +1,35 @@
-import { useState, useEffect, useCallback } from 'react';
-import { useRouter } from 'next/router';
+'use client'
+import { useEffect, useState } from "react";
+import { useRouter, usePathname, useSearchParams } from 'next/navigation'
+ 
 
 export default function useHashRouteToggle(hash: string): [boolean, (bool: boolean) => void] {
-  const router = useRouter();
-
+  const router = useRouter()
+  const pathname = usePathname()
   const [isActive, setIsActive] = useState(false);
 
-  const toggleActive = useCallback((bool: boolean) => {
+  const toggleActive = (bool: boolean) => {
     if (bool !== isActive) {
       if (bool) {
-        router.push(router.pathname + "#" + hash, undefined, { shallow: true });
+        router.push(pathname + "#" + hash);
       } else {
-        const pathWithoutHash = router.asPath.split('#')[0];
-        router.push(pathWithoutHash, undefined, { shallow: true });
+        window.history.back();
       }
       setIsActive(bool);
     }
-  }, [hash, isActive, router]);
+  };
 
   useEffect(() => {
-    const handleOnHashChange = () => {
-      setIsActive(window.location.hash.includes(hash));
-    };
+    if (typeof window !== 'undefined') {
+      const handleOnHashChange = () => {
+        setIsActive(false);
+      };
 
-    window.addEventListener("hashchange", handleOnHashChange);
+      window.addEventListener("hashchange", handleOnHashChange);
 
-    if (window.location.hash.includes(hash)) {
-      setIsActive(true);
+      return () => window.removeEventListener("hashchange", handleOnHashChange);
     }
-
-    return () => window.removeEventListener("hashchange", handleOnHashChange);
-  }, [hash]);
+  }, []);
 
   return [isActive, toggleActive];
 }
