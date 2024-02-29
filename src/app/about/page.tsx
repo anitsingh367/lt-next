@@ -7,7 +7,7 @@ import {
   ListItemText,
 } from "@mui/material";
 import logo from "../../assets/logo.png";
-import vision from "../../assets/logo.png";
+import vision from "../../assets/vision.png";
 import React from "react";
 import profilePhoto from "../../assets/veerji-profile-photo.png";
 import Image from "next/image";
@@ -60,7 +60,14 @@ const About = () => {
                 },
               }}
             >
-              <Image src={profilePhoto} alt="img" width={534}/>
+              <Image
+                src={profilePhoto}
+                alt="Profile Photo"
+                layout="responsive"
+                width={700}
+                height={475}
+                objectFit="cover"
+              />
             </Box>
             <Box
               sx={{
@@ -151,7 +158,13 @@ const About = () => {
                 },
               }}
             >
-              <Image src={logo} alt="Logo" />
+              <Image
+                src={logo}
+                alt="logo"
+                layout="responsive"
+                width={700}
+                height={475}
+              />
             </Box>
             <Box
               sx={{
@@ -240,7 +253,13 @@ const About = () => {
                 },
               }}
             >
-              <Image src={vision} alt="img" />
+              <Image
+                src={vision}
+                alt="img"
+                layout="responsive"
+                width={700}
+                height={475}
+              />
             </Box>
             <Box
               sx={{
