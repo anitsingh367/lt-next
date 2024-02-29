@@ -16,8 +16,8 @@ import MenuIcon from "@mui/icons-material/Menu";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import logo from "../assets/logo.png";
-// import ContributeModal from "../ContributeModal/ContributeModal.react";
-// import VolunteerModal from "../VolunteerModal/VolunteerModal.react";
+import ContributeModal from "../components/ContributeModal";
+import VolunteerModal from "../components/VolunteerModal";
 import useHashRouteToggle from "../../utils/useHashRoute";
 import Image from "next/image";
 
@@ -44,16 +44,15 @@ function Header() {
 
   const drawer = (
     <div>
-      {/* <ContributeModal
+      <ContributeModal
         isOpen={openContributeModal}
-        onClose={(value) => setOpenContributeModal(value)}
+        onClose={() => setOpenContributeModal(false)}
         isNavbar={true}
-      /> */}
-      {/* <VolunteerModal
+      />
+      <VolunteerModal
         isOpen={openVolunteerModal}
-        onClose={(value) => setOpenVolunteerModal(value)}
-        isNavbar={true}
-      /> */}
+        onClose={(value: boolean) => setOpenVolunteerModal(value)}
+      />
       <Toolbar
         sx={{
           display: "flex",
