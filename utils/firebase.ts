@@ -34,7 +34,7 @@ const firebaseConfig = {
 
 // Initialize Firebase
 const app: FirebaseApp = initializeApp(firebaseConfig);
-const db: Firestore = getFirestore(app);
+export const db: Firestore = getFirestore(app);
 
 // Fetch event details from Firestore
 export const getEventDetails = async (): Promise<EventDetail[]> => {

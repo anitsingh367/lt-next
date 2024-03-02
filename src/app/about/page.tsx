@@ -63,10 +63,10 @@ const About = () => {
               <Image
                 src={profilePhoto}
                 alt="Profile Photo"
-                layout="responsive"
                 width={700}
                 height={475}
                 objectFit="cover"
+                placeholder="blur"
               />
             </Box>
             <Box
@@ -161,9 +161,9 @@ const About = () => {
               <Image
                 src={logo}
                 alt="logo"
-                layout="responsive"
                 width={700}
                 height={475}
+                placeholder="blur"
               />
             </Box>
             <Box
@@ -259,6 +259,7 @@ const About = () => {
                 layout="responsive"
                 width={700}
                 height={475}
+                placeholder="blur"
               />
             </Box>
             <Box
