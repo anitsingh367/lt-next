@@ -1,23 +1,18 @@
-// Assuming getHomePageVideo has been converted to TypeScript as shown in previous examples.
+"use client"
 import React, { useEffect, useState } from "react";
 import { Box } from "@mui/material";
 import { getHomePageVideo } from "../../utils/firebase";
 
-// Define TypeScript interface for the video state if necessary.
-// If your video data structure is more complex, you may want to define a more detailed interface.
 interface VideoData {
   videoUrl: string;
 }
 
 const Video: React.FC = () => {
-  // Using `useState<VideoData | null>` to explicitly define the state type.
   const [video, setVideo] = useState<VideoData | null>(null);
 
   useEffect(() => {
     getHomePageVideo().then((res) => {
-      // Assuming the response is an array of objects and we're interested in the first item's videoUrl.
-      // You might need to adjust this based on your actual data structure.
-      const videoData: VideoData = res[0] as VideoData; // Type assertion, assuming res is any[] from Firebase.
+       const videoData: VideoData = res[0] as VideoData;
       setVideo(videoData);
     });
   }, []);
